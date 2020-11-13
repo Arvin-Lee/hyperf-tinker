@@ -1,7 +1,7 @@
 # component-creater
 ###install
 ```
-composer require arvin/hyperf-tinker
+composer require leearvin/hyperf-tinker
 ```
 ###use
 ```
