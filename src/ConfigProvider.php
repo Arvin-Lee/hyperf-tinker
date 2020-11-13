@@ -11,6 +11,8 @@ declare(strict_types=1);
  */
 namespace HyperfTinker;
 
+use HyperfTinker\Commands\TinkerCommand;
+
 class ConfigProvider
 {
     public function __invoke(): array
@@ -19,6 +21,7 @@ class ConfigProvider
             'dependencies' => [
             ],
             'commands' => [
+                TinkerCommand::class
             ],
             'annotations' => [
                 'scan' => [
