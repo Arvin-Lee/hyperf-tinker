@@ -1,10 +1,10 @@
 ### install
-```
-composer require leearvin/hyperf-tinker
+```shell script
+    composer require leearvin/hyperf-tinker
 ```
 ### use
-```
-php bin/hyerf.php tinker
+```shell script
+    php bin/hyerf.php tinker
 ```
 ### commnads
 ````shell script
