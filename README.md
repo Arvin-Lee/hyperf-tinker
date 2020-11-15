@@ -1,3 +1,7 @@
+### 说明
+```angular2svg
+    当前版本与swoole还存在一些兼容问题(show trace命令等)、后续会满足swoole下的开发调试、<注意>需要root权限</注意>
+```
 ### install
 ```shell script
     composer require leearvin/hyperf-tinker
@@ -48,55 +52,9 @@ The help command
       inspire          Display an inspiring quote
 ```
 ```shell script
-    >>> clear
-    >>> show Request
-    663:     /**
-    664:      * Get an instance of the current request or an input item from the request.
-    665:      *
-    666:      * @param  array|string|null  $key
-    667:      * @param  mixed  $default
-    668:      * @return \Illuminate\Http\Request|string|array
-    669:      */
-    670:     function request($key = null, $default = null)
-    671:     {
-    672:         if (is_null($key)) {
-    673:             return app('request');
-    674:         }
-    675:
-    676:         if (is_array($key)) {
-    677:             return app('request')->only($key);
-    678:         }
-    679:
-    680:         $value = app('request')->__get($key);
-    681:
-    682:         return is_null($value) ? value($default) : $value;
-    683:     }
-    
-    >>>
-```
-```shell script
 get hyperf env
     Psy Shell v0.10.4 (PHP 7.2.34 — cli)
     >>> env("APP_NAME")
     => "skeleton"
-    >>>
-```
-```shell script
-Show the current call stack
-    >>> trace
-     0:  Laravel\Tinker\Console\TinkerCommand->handle() at vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:36
-     1:  Illuminate\Container\BoundMethod::Illuminate\Container\{closure}() at vendor/laravel/framework/src/Illuminate/Container/Util.php:37
-     2:  Illuminate\Container\Util::unwrapIfClosure() at vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:93
-     3:  Illuminate\Container\BoundMethod::callBoundMethod() at vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:37
-     4:  Illuminate\Container\BoundMethod::call() at vendor/laravel/framework/src/Illuminate/Container/Container.php:596
-     5:  Illuminate\Container\Container->call() at vendor/laravel/framework/src/Illuminate/Console/Command.php:134
-     6:  Illuminate\Console\Command->execute() at vendor/symfony/console/Command/Command.php:258
-     7:  Symfony\Component\Console\Command\Command->run() at vendor/laravel/framework/src/Illuminate/Console/Command.php:121
-     8:  Illuminate\Console\Command->run() at vendor/symfony/console/Application.php:920
-     9:  Symfony\Component\Console\Application->doRunCommand() at vendor/symfony/console/Application.php:266
-    10:  Symfony\Component\Console\Application->doRun() at vendor/symfony/console/Application.php:142
-    11:  Symfony\Component\Console\Application->run() at vendor/laravel/framework/src/Illuminate/Console/Application.php:93
-    12:  Illuminate\Console\Application->run() at vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:129
-    13:  Illuminate\Foundation\Console\Kernel->handle() at artisan:37
     >>>
 ```
