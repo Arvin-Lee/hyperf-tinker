@@ -5,7 +5,8 @@
     "keywords": [
         "php",
         "hyperf",
-        "tinker"
+        "tinker",
+        "swoole"
     ],
     "authors": [
         {
