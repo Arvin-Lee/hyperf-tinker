@@ -9,25 +9,26 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-namespace HyperfTinker\Commands;
+namespace Hyperf\Tinker;
 
+use Hyperf\Command\Annotation\Command;
 use Hyperf\Command\Command as HyperfCommand;
+use Hyperf\Contract\ConfigInterface;
 use Psr\Container\ContainerInterface;
+use Psy\Configuration;
 use Psy\Shell;
 
+/**
+ * @Command
+ */
 class TinkerCommand extends HyperfCommand
 {
-    /**
-     * @var ContainerInterface
-     */
+    /** @var ContainerInterface */
     protected $container;
 
-    protected $shell;
-
-    public function __construct(ContainerInterface $container, Shell $shell)
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
-        $this->shell = $shell;
 
         parent::__construct('tinker');
     }
@@ -40,6 +41,9 @@ class TinkerCommand extends HyperfCommand
 
     public function handle()
     {
-        $this->shell->run();
+        $psyConfig = $this->container->get(ConfigInterface::class)->get('tinker', []);
+        $configuration = new Configuration($psyConfig);
+        $shell = new Shell($configuration);
+        $shell->run();
     }
 }

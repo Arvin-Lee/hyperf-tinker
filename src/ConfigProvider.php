@@ -9,25 +9,29 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-namespace HyperfTinker;
-
-use HyperfTinker\Commands\TinkerCommand;
+namespace Hyperf\Tinker;
 
 class ConfigProvider
 {
     public function __invoke(): array
     {
         return [
-            'dependencies' => [
-            ],
-            'commands' => [
-                TinkerCommand::class
-            ],
             'annotations' => [
                 'scan' => [
                     'paths' => [
                         __DIR__,
                     ],
+                ],
+            ],
+            'commands' => [
+                TinkerCommand::class,
+            ],
+            'publish' => [
+                [
+                    'id' => 'config',
+                    'description' => 'The config for Tinker.',
+                    'source' => __DIR__ . '/../publish/tinker.php',
+                    'destination' => BASE_PATH . '/config/autoload/tinker.php',
                 ],
             ],
         ];

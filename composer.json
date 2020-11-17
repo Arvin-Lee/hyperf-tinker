@@ -17,39 +17,31 @@
     "description": "Powerful REPL for the Hyperf framework.",
     "autoload": {
         "psr-4": {
-            "HyperfTinker\\": "src/"
+            "Hyperf\\Tinker\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "HyperfTest\\": "tests"
+            "HyperfTest\\Tinker\\": "tests/"
         }
     },
     "require": {
         "php": ">=7.2",
         "ext-swoole": ">=4.5",
-        "hyperf/framework": "2.0.*",
-        "hyperf/di": "2.0.*",
+        "hyperf/di": "~2.0.0",
         "psy/psysh": "^0.10.4",
-        "hyperf/command": "~2.0.0"
+        "hyperf/command": "~2.0.0",
+        "hyperf/contract": "~2.0.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.14",
-        "phpstan/phpstan": "^0.12",
-        "hyperf/testing": "2.0.*",
-        "swoole/ide-helper": "dev-master"
+        "hyperf/testing": "2.0.*"
     },
     "config": {
         "sort-packages": true
     },
-    "scripts": {
-        "test": "co-phpunit -c phpunit.xml --colors=always",
-        "analyse": "phpstan analyse --memory-limit 1024M -l 0 ./src",
-        "cs-fix": "php-cs-fixer fix $1"
-    },
     "extra": {
         "hyperf": {
-            "config": "HyperfTinker\\ConfigProvider"
+            "config": "Hyperf\\Tinker\\ConfigProvider"
         }
     }
 }
