@@ -72,3 +72,112 @@ Psy Shell v0.10.4 (PHP 7.2.34 — cli)
 => "skeleton"
 >>>
 ```
+* query db
+
+```bash
+➜  t.hyperf.com git:(master) ✗ php bin/hyperf.php tinker
+[DEBUG] Event Hyperf\Framework\Event\BootApplication handled by Hyperf\Config\Listener\RegisterPropertyHandlerListener listener.
+[DEBUG] Event Hyperf\Framework\Event\BootApplication handled by Hyperf\Paginator\Listener\PageResolverListener listener.
+[DEBUG] Event Hyperf\Framework\Event\BootApplication handled by Hyperf\ExceptionHandler\Listener\ExceptionHandlerListener listener.
+[DEBUG] Event Hyperf\Framework\Event\BootApplication handled by Hyperf\DbConnection\Listener\RegisterConnectionResolverListener listener.
+Psy Shell v0.10.4 (PHP 7.2.34 — cli) by Justin Hileman
+Unable to check for updates
+>>> $user = App\Model\User::find(1)
+[DEBUG] Event Hyperf\Database\Model\Events\Booting handled by Hyperf\ModelListener\Listener\ModelHookEventListener listener.
+[DEBUG] Event Hyperf\Database\Model\Events\Booting handled by Hyperf\ModelListener\Listener\ModelEventListener listener.
+[DEBUG] Event Hyperf\Database\Model\Events\Booted handled by Hyperf\ModelListener\Listener\ModelHookEventListener listener.
+[DEBUG] Event Hyperf\Database\Model\Events\Booted handled by Hyperf\ModelListener\Listener\ModelEventListener listener.
+[DEBUG] Event Hyperf\Database\Events\QueryExecuted handled by App\Listener\DbQueryExecutedListener listener.
+[DEBUG] Event Hyperf\Database\Model\Events\Retrieved handled by Hyperf\ModelListener\Listener\ModelHookEventListener listener.
+[DEBUG] Event Hyperf\Database\Model\Events\Retrieved handled by Hyperf\ModelListener\Listener\ModelEventListener listener.
+=> App\Model\User {#81816
+     +incrementing: true,
+     +exists: true,
+     +wasRecentlyCreated: false,
+     +timestamps: true,
+   }
+>>> var_dump($user)
+object(App\Model\User)#81816 (28) {
+  ["table":protected]=>
+  string(5) "users"
+  ["fillable":protected]=>
+  array(2) {
+    [0]=>
+    string(2) "id"
+    [1]=>
+    string(4) "name"
+  }
+  ["casts":protected]=>
+  array(0) {
+  }
+  ["incrementing"]=>
+  bool(true)
+  ["exists"]=>
+  bool(true)
+ 
+  ["attributes":protected]=>
+  array(4) {
+    ["id"]=>
+    int(1)
+    ["name"]=>
+    string(5) "arvin"
+    ["created_at"]=>
+    string(19) "2020-11-23 18:38:00"
+    ["updated_at"]=>
+    string(19) "2020-11-23 18:38:03"
+  }
+  ["original":protected]=>
+  array(4) {
+    ["id"]=>
+    int(1)
+    ["name"]=>
+    string(5) "arvin"
+    ["created_at"]=>
+    string(19) "2020-11-23 18:38:00"
+    ["updated_at"]=>
+    string(19) "2020-11-23 18:38:03"
+  }
+  
+}
+=> null
+```
+* show doc
+```bash
+>>> doc md5
+function md5($str, $raw_output = unknown)
+
+PHP manual not found
+    To document core PHP functionality, download the PHP reference manual:
+    https://github.com/bobthecow/psysh/wiki/PHP-manual
+>>>
+```
+* show class
+
+```bash
+>>> show App\Model\User
+ 7: /**
+ 8:  */
+ 9: class User extends Model
+10: {
+11:     /**
+12:      * The table associated with the model.
+13:      *
+14:      * @var string
+15:      */
+16:     protected $table = 'users';
+17:     /**
+18:      * The attributes that are mass assignable.
+19:      *
+20:      * @var array
+21:      */
+22:     protected $fillable = ['id','name'];
+23:     /**
+24:      * The attributes that should be cast to native types.
+25:      *
+26:      * @var array
+27:      */
+28:     protected $casts = [];
+29: }
+
+>>>
+```
