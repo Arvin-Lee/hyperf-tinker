@@ -29,13 +29,13 @@
     "require": {
         "php": ">=7.2",
         "ext-swoole": ">=4.5",
-        "hyperf/di": "~2.0.0",
+        "hyperf/di": "~2.1.0",
         "psy/psysh": "^0.10.4",
-        "hyperf/command": "~2.0.0",
-        "hyperf/contract": "~2.0.0"
+        "hyperf/command": "~2.1.0",
+        "hyperf/contract": "~2.1.0"
     },
     "require-dev": {
-        "hyperf/testing": "2.0.*"
+        "hyperf/testing": "2.1.*"
     },
     "config": {
         "sort-packages": true
