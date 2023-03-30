@@ -35,7 +35,7 @@
         "hyperf/contract": "~3.0.0"
     },
     "require-dev": {
-        "hyperf/testing": "2.2.*"
+        "hyperf/testing": "~3.0.0"
     },
     "config": {
         "sort-packages": true
